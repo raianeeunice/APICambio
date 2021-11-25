@@ -56,6 +56,7 @@ func BuscarDepositos(w http.ResponseWriter, r *http.Request){
 		respostas.Erro(w, http.StatusInternalServerError, erro)
 		return
 	}
+	defer db.Close()
 	repositorio := repositorios.NovoRepositorioDeDepositos(db)
 	depositos, erro := repositorio.BuscarDepositos(moeda)
 	if erro != nil {
@@ -73,6 +74,8 @@ func BuscarSaldoTotal(w http.ResponseWriter, r *http.Request){
 		respostas.Erro(w, http.StatusInternalServerError, erro)
 		return
 	}
+	defer db.Close()
+	
 	repositorio := repositorios.NovoRepositorioDeDepositos(db)
 	valorTotal, erro := repositorio.BuscarSaldoTotal(moeda)
 	if erro != nil {
