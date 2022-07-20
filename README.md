@@ -5,5 +5,5 @@ DB_USUARIO= < seu usuario >
 DB_SENHA= < sua senha >
 DB_NOME= < nome >
 
-API_PORT= < ports >
+API_PORT= < porta >
 ```
